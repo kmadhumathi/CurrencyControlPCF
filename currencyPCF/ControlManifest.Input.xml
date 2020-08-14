@@ -2,11 +2,14 @@
 <manifest>
   <control namespace="currencyTypes" constructor="currencyPCF" version="0.0.1" display-name-key="currencyPCF" description-key="currencyPCF description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="currency" display-name-key="currencyProperty_Display_Key" description-key="currencyProperty_Desc_Key" of-type="Enum" usage="input" required="true" >
+    <property name="currency" display-name-key="currencyProperty_Display_Key" description-key="currencyProperty_Desc_Key" of-type="OptionSet" usage="bound" required="true" />
+    <!-- 
+    <property name="currency" display-name-key="currencyProperty_Display_Key" description-key="currencyProperty_Desc_Key" of-type="Enum" usage="bound" required="true" >
       <value name="USD" display-name-key="USD" description-key="From_USD" default="true">USD</value>
       <value name="EUR" display-name-key="EUR" description-key="From_EUR">EUR</value>
       <value name="INR" display-name-key="INR" description-key="From_INR">INR</value>
     </property>
+    -->
       <!-- 
       Property node's of-type attribute can be of-type-group attribute. 
       Example:

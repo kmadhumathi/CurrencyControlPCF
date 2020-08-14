@@ -82,9 +82,23 @@ export class currencyPCF implements ComponentFramework.StandardControl<IInputs, 
     }
 
     private setExchangeRateForCurrSelected() {
-        let currencySelected: string = this._context.parameters.currency.raw;
+        
+        let currencySelected = this._context.parameters.currency.raw;
+        let options: ComponentFramework.PropertyHelper.OptionMetadata[] | undefined = this._context.parameters.currency.attributes?.Options;
+        if (options) {
+            for (var i = 0; i < options.length; i++) {
+                let temp: number = options[i].Value;;
+                if (temp == currencySelected) {
+                    // this needs to be changed to  setting the exchange rate field to this.exchangeRatesList.rates[options[i].Label]
+                    this._container.innerText = "Exchange Rate: " + options[i].Label;
+                    break;
+                }
+            }
+        }
+        console.log(currencySelected);
 
         // set the exchange rate field instead of displaying like this - 
-        this._container.innerText = "Exchange Rate: " + this.exchangeRatesList.rates[currencySelected];
+        //if (currencySelected)
+           //this._container.innerText = "Exchange Rate: " + this.exchangeRatesList.rates[currencySelected];
     }
 }
